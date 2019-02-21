@@ -8,4 +8,10 @@
 
 // Your CSS partials
 @import "components/index";
+@import "config/index";
 
+//Your CSS users
+@import "users/index";
+
+// Your CSS pages
+@import "home";

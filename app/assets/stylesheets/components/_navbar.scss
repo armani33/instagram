@@ -1,6 +1,18 @@
 .navbar{
   border-bottom: 1px solid rgba(0,0,0,.0975);
 }
+.brand-logo{
+  color: black;
+  margin: 0;
+  padding: 0;
+  a{
+    text-decoration: none;
+  }
+  &:hover{
+    text-decoration: none;
+    color: black;
+  }
+}
 .user-section{
   a{
     padding-left: 15px;

@@ -2,8 +2,10 @@
   <div class="container">
     <div class="logo">
       <a class="navbar-brand" href="#">
-        <%= fa_stacked_icon "camera inverse", base: "circle"%>
-        Instagram
+        <%= link_to root_path, { class: "brand-logo" } do %>
+          <%= fa_stacked_icon "camera inverse", base: "circle"%>
+          Instagram
+        <% end %>
       </a>
     </div>
     <div class="m-auto">
@@ -14,7 +16,15 @@
     <div class="user-section">
       <a><i class="fa fa-compass"></i></a>
       <a><i class="fa fa-heart"></i></a>
-      <a><i class="fa fa-user"></i></a>
+      <%if user_signed_in? %>
+        <%= link_to user_path(current_user) do %>
+          <i class="fa fa-user"></i>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path do %>
+          <i class="fa fa-sign-in"></i>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </nav>
