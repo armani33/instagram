@@ -2,7 +2,9 @@
   <div class="profile row">
     <div class="col-md-4 avatar">
       <div class="wrapper">
-        <img src="http://i.pravatar.cc/200" alt="avatar">
+        <% if current_user.avatar.attached? %>
+          <%= image_tag current_user.avatar %>
+        <% end %>
       </div>
     </div>
 
@@ -14,12 +16,12 @@
         </a>
       </div>
       <ul class="posts">
-        <li><span>12</span> posts</li>
+        <li><span><%= @posts.count %></span> posts</li>
         <li><span>195</span> followers</li>
         <li><span>345</span> following</li>
       </ul>
       <h2 class="name"><%= current_user.name %></h2>
-      <a href="#" class="website"><%= current_user.website %></a>
+      <a href="<% current_user.website %>" target="_blank" class="website"><%= current_user.website %></a>
     </div>
   </div>
 
@@ -43,14 +45,10 @@
   </div>
 
   <div class="user-images">
-    <div class="wrapper">
-      <img src="https://picsum.photos/280/280/?random" alt="image">
-    </div>
-    <div class="wrapper">
-      <img src="https://picsum.photos/280/280/?random" alt="image">
-    </div>
-    <div class="wrapper">
-      <img src="https://picsum.photos/280/280/?random" alt="image">
-    </div>
+    <% @posts.each do |post| %>
+      <div class="wrapper">
+        <%= image_tag post.image%>
+      </div>
+    <% end %>
   </div>
 </div>
